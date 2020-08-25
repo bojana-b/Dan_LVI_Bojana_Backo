@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_html_download.View"
         mc:Ignorable="d"
-        Title="DownloadHTMLView" Height="450" Width="800">
+        Title="Download HTML" Background="AntiqueWhite" MinHeight="200" MinWidth="400"
+        SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+            <Label Content="HTML link:" Foreground="RosyBrown" FontSize="14" FontWeight="DemiBold"/>
+            <TextBox Text="{Binding HTML, UpdateSourceTrigger=PropertyChanged}" Width="150" Foreground="RosyBrown" Margin="10,0,0,0"/>
+        </StackPanel>
+        <Button Grid.Row="1" Grid.Column="3" Width="100" Height="30"
+                Content="Download HTML" FontWeight="DemiBold" Foreground="RosyBrown"
+                Command="{Binding Download}" IsEnabled="{Binding CanClose}"/>
+        <Button Grid.Row="3" Grid.Column="3" Width="100" Height="30"
+                Content="Zip files" FontWeight="DemiBold" Foreground="RosyBrown"
+                Command="{Binding Zip}" IsEnabled="{Binding CanClose}"/>
+        <Button Grid.Row="5" Grid.Column="3" Width="100" Height="30"
+                Content="Close" FontWeight="DemiBold" Foreground="RosyBrown"
+                Command="{Binding Close}"/>
     </Grid>
 </Window>
